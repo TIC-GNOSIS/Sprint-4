@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Empresas</title>
+</head>
+<body>
+<main>
+    <div class="px-4 py-5 my-5 text-center">
+        <div>
+            <h1 class="display-5 fw-bold mb-4">Sistema de Gestion de Empresas</h1>
+        </div>
+        <div>
+            <p class="text-center"> En esta aplicacion puedes gestionar tu empresa desde tu celuar, puedes
+            desde actualizar,<br> agregar y eliminar tu personal, y controlar tus movimientos bancarios </p>
+        </div>
+        <div class="d-flex gap-4 justify-content-center">
+            <div th:each="enterprise : ${enterprise}" class="card" style="width: 18rem;">
+                <div>
+                    <img src="img/empresa.png" class="card-img-top" alt="..." style="width: 60px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${enterprise.nombre}"></h5>
+                    <div class="d-flex flex-column gap-3 align-items-center">
+                        <a href="/enterprise/gestionEnterprise" class="btn btn-primary  btn-lg px-4 gap-3">Ingresar</a>
+                    </div>
+                    <div>
+                        <form th:action="@{/enterprise/{id}(id=${enterprise.id})}" th:method="delete">
+                            <button href="submit" class="btn btn-danger btn-lg px-4 gap-3 my-3">Eliminar Empresa</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="px-8 py-5 my-5 text-center">
+                <a href="/enterprise/newEnterprise" button type="button" class="btn btn-primary btn-lg px-4 gap-3">Crear Empresa</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

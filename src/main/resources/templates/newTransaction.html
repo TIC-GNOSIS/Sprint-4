@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Nuevo Movimiento</title>
+</head>
+<body>
+<div class="px-4 py-5 my5 text-center">
+    <h1 class="display-5 fw-bold mb-4">NUEVO MOVIMIENTO</h1>
+    <form th:action="@{/transaction}"  th:method="post" th:object="${transaction}" class="d-flex flex-column gap-3 align-items-center">
+        <label class="form-label">Monto Del Movimiento</label>
+        <input th:field="*{montoDelMovimiento}" type="text"/>
+        <label class="form-label">Concepto Del Movimiento</label>
+        <input th:field="*{conceptoDelMovimiento}" type="text"/>
+        <button type="submit" class="btn btn-primary">Crear Movimiento</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
